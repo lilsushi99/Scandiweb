@@ -4,19 +4,6 @@ const productForm = document.querySelector("#add-product-form");
 const typeSwitch = document.querySelector("#productType");
 const fields = document.querySelector("#type-forms");
 
-const toast = document.querySelector("#toast");
-
-// toast
-const showToast = (message) => {
-  let html = `
-      <p>${message}</p>
-  `;
-
-  toast.innerHTML = html;
-  toast.classList.add("open");
-  setTimeout(() => toast.classList.remove("open"), 3000);
-};
-
 document.onreadystatechange = () => {
   if (document.readyState === "complete") {
     showFormType(typeSwitch.value);
@@ -130,6 +117,5 @@ productForm.addEventListener("submit", (e) => {
 
   addProduct(formData);
   productForm.reset();
-  showToast("new product added");
-  setTimeout(() => redirectUser("Productpage.html"), 800);
+  setTimeout(() => redirectUser("Productpage.html"), 100);
 });

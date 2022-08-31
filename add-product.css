@@ -7,37 +7,6 @@ body {
   background-color: hsl(30, 30%, 95%);
 }
 
-#toast.open {
-  /* top: 3rem; */
-  animation: from-top 0.8s;
-}
-
-/* toast */
-#toast {
-  background-color: rgb(94, 255, 94);
-  color: white;
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.6rem 1.1rem;
-  position: absolute;
-  left: 50%;
-  top: -3rem;
-  height: 2rem;
-  transform: translateX(-50%);
-  border-radius: 0.4rem;
-}
-
-@keyframes from-top {
-  70% {
-    top: 2rem;
-  }
-  100% {
-    top: -2rem;
-  }
-}
-
 .Add-product {
   margin-top: 40px;
   margin-bottom: 80px;
