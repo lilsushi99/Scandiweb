@@ -11,7 +11,6 @@ document.onreadystatechange = () => {
 };
 
 typeSwitch.addEventListener("change", () => {
-  console.log("changed to: ", typeSwitch.value);
   showFormType(typeSwitch.value);
 });
 
@@ -22,19 +21,19 @@ let discHtml = `
     <input type="number" placeholder="Enter Disc Size" name="disc" required />
   </div>`;
 
-let ironHtml = `
-  <div class="fieldbox" id="Iron-switch">
+let bookHtml = `
+  <div class="fieldbox" id="Book-switch">
     <label>Weight (kg)</label>
-    <input type="number" placeholder="Enter Iron Weight" name="weight" required />
+    <input type="number" placeholder="Enter Book Weight" name="weight" required />
   </div>
 `;
 
-let tableHtml = `
-  <div class="fieldbox" id="Table-switch">
+let furnitureHtml = `
+  <div class="fieldbox" id="Furniture-switch">
     <label>Dimension (cm)</label>
-    <input type="number" placeholder="Enter Table Width" name="width" required / >
-    <input type="number" placeholder="Enter Table Height" name="height"required / >
-    <input type="number" placeholder="Enter Table length" name="length" required / >
+    <input type="number" placeholder="Enter Furniture Width" name="width" required / >
+    <input type="number" placeholder="Enter Furniture Height" name="height"required / >
+    <input type="number" placeholder="Enter Furniture length" name="length" required / >
   </div>
 `;
 
@@ -43,11 +42,11 @@ const showFormType = (typeValue) => {
     case "Disc":
       fields.innerHTML = discHtml;
       break;
-    case "Iron":
-      fields.innerHTML = ironHtml;
+    case "Book":
+      fields.innerHTML = bookHtml;
       break;
-    case "Table":
-      fields.innerHTML = tableHtml;
+    case "Furniture":
+      fields.innerHTML = furnitureHtml;
       break;
     default:
       fields.innerHTML = "no field";
@@ -59,9 +58,9 @@ const formatPropName = (typeValue) => {
   switch (typeValue) {
     case "Disc":
       return "productSize";
-    case "Iron":
+    case "Book":
       return "productWeight";
-    case "Table":
+    case "Furniture":
       return "productDimension";
     default:
       return "";
@@ -73,9 +72,9 @@ const getFieldValue = (typeField) => {
   switch (typeField) {
     case "Disc":
       return `${productForm.disc.value.trim()}MB`;
-    case "Iron":
+    case "Book":
       return `${productForm.weight.value.trim()}kg`;
-    case "Table":
+    case "Furniture":
       return `${productForm.width.value}x${productForm.height.value}x${productForm.length.value}`;
     // width: productForm.width.value.trim(),
     // height: productForm.height.value.trim(),
