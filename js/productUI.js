@@ -5,7 +5,6 @@ const selectAllContainer = document.querySelector("#select-all");
 const productGrid = document.querySelector(".Product-Grid");
 
 // fetch product data from local storage
-localStorage.clear()
 document.onreadystatechange = () => {
   if (document.readyState === "complete") {
     let retrieved = JSON.parse(localStorage.getItem("products"));
