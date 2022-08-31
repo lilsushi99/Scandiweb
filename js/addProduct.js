@@ -2,16 +2,28 @@ console.log("welcome to the about product page :)");
 
 const productForm = document.querySelector("#add-product-form");
 const typeSwitch = document.querySelector("#productType");
-const fields = document.querySelector("#type-forms");
+const typeForm = document.querySelector("#type-forms");
 
 document.onreadystatechange = () => {
   if (document.readyState === "complete") {
-    showFormType(typeSwitch.value);
+    showForm();
   }
 };
 
+// determine form to show function
+const showForm = () => {
+  const formIds = ["Disc", "Book", "Furniture"];
+  let filteredForms = formIds.filter((formId) => formId !== typeSwitch.value);
+  filteredForms.map((form) =>
+    typeForm.querySelector(`#${form}`).classList.add("hidden")
+  );
+  const currentForm = typeForm
+    .querySelector(`#${typeSwitch.value}`)
+    .classList.remove("hidden");
+};
+
 typeSwitch.addEventListener("change", () => {
-  showFormType(typeSwitch.value);
+  showForm();
 });
 
 // form markup
@@ -37,52 +49,54 @@ let furnitureHtml = `
   </div>
 `;
 
-const showFormType = (typeValue) => {
-  switch (typeValue) {
-    case "Disc":
-      fields.innerHTML = discHtml;
-      break;
-    case "Book":
-      fields.innerHTML = bookHtml;
-      break;
-    case "Furniture":
-      fields.innerHTML = furnitureHtml;
-      break;
-    default:
-      fields.innerHTML = "no field";
-      break;
-  }
-};
+console.log(typeForm);
 
-const formatPropName = (typeValue) => {
-  switch (typeValue) {
-    case "Disc":
-      return "productSize";
-    case "Book":
-      return "productWeight";
-    case "Furniture":
-      return "productDimension";
-    default:
-      return "";
-  }
-};
+// const showFormType = (typeValue) => {
+//   switch (typeValue) {
+//     case "Disc":
+//       typeForm.innerHTML = discHtml;
+//       break;
+//     case "Book":
+//       typeForm.innerHTML = bookHtml;
+//       break;
+//     case "Furniture":
+//       typeForm.innerHTML = furnitureHtml;
+//       break;
+//     default:
+//       typeForm.innerHTML = "no field";
+//       break;
+//   }
+// };
 
-// function to return the value of select input prepended/appended with appropriate unit(kg/mb)
-const getFieldValue = (typeField) => {
-  switch (typeField) {
-    case "Disc":
-      return `${productForm.disc.value.trim()}MB`;
-    case "Book":
-      return `${productForm.weight.value.trim()}kg`;
-    case "Furniture":
-      return `${productForm.width.value}x${productForm.height.value}x${productForm.length.value}`;
-    // width: productForm.width.value.trim(),
-    // height: productForm.height.value.trim(),
-    // length: productForm.length.value.trim(),
-    default:
-      return {};
-  }
-};
+// const formatPropName = (typeValue) => {
+//   switch (typeValue) {
+//     case "Disc":
+//       return "productSize";
+//     case "Book":
+//       return "productWeight";
+//     case "Furniture":
+//       return "productDimension";
+//     default:
+//       return "";
+//   }
+// };
+
+// // function to return the value of select input prepended/appended with appropriate unit(kg/mb)
+// const getFieldValue = (typeField) => {
+//   switch (typeField) {
+//     case "Disc":
+//       return `${productForm.disc.value.trim()}MB`;
+//     case "Book":
+//       return `${productForm.weight.value.trim()}kg`;
+//     case "Furniture":
+//       return `${productForm.width.value}x${productForm.height.value}x${productForm.length.value}`;
+//     // width: productForm.width.value.trim(),
+//     // height: productForm.height.value.trim(),
+//     // length: productForm.length.value.trim(),
+//     default:
+//       return {};
+//   }
+// };
 
 const redirectUser = (endpoint) => {
   // retrive details from url and redirect user to given url
@@ -111,10 +125,11 @@ productForm.addEventListener("submit", (e) => {
     productId: productForm.sku.value.trim(),
     productName: productForm.name.value.trim(),
     productPrice: `$${productForm.price.value.trim()}`,
-    [formatPropName(`${typeSwitch.value}`)]: getFieldValue(typeSwitch.value),
+    // [formatPropName(`${typeSwitch.value}`)]: getFieldValue(typeSwitch.value),
   };
+  console.log(formData, "id");
 
-  addProduct(formData);
-  productForm.reset();
-  setTimeout(() => redirectUser("Productpage.html"), 100);
+  // addProduct(formData);
+  // productForm.reset();
+  // setTimeout(() => redirectUser("Productpage.html"), 100);
 });
