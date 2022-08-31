@@ -7,6 +7,10 @@ body {
   background-color: hsl(30, 30%, 95%);
 }
 
+.hidden {
+  display: none;
+}
+
 .Add-product {
   margin-top: 40px;
   margin-bottom: 80px;

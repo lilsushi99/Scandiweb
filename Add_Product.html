@@ -45,22 +45,22 @@
                         </div>
                     </select>
                     <div id="type-forms">
-                        <!-- <div class="fieldbox" id="Disc-switch">
-                            <label>Size</label>
-                            <input type="text" placeholder="Enter Disc Size" />
+                        <div class="fieldbox hidden" id="Disc" data-alias="productSize">
+                            <label>Size (mb)</label>
+                            <input type="number" placeholder="Enter Disc Size" name="disc" required />
                         </div>
-                        <div class="fieldbox" id="Iron-switch">
-                            <label>Weight</label>
-                            <input type="text" placeholder="Enter Iron Weight" />
+                        <div class="fieldbox hidden" id="Book" data-alias="productWeight">
+                            <label>Weight (kg)</label>
+                            <input type="number" placeholder="Enter Book Weight" name="weight" required />
                         </div>
-                        <div class="fieldbox" id="Table-switch">
-                            <label>Dimension</label>
-                            <input type="text" placeholder="Enter Table Dimensions" />
-                            <input type="text" placeholder="Enter Table Dimensions" />
-                            <input type="text" placeholder="Enter Table Dimensions" />
-                        </div> -->
+                        <div class="fieldbox hidden" id="Furniture" data-alias="productDimension">
+                            <label>Dimension (cm)</label>
+                            <input type="number" placeholder="Enter Furniture Width" name="width" required />
+                            <input type="number" placeholder="Enter Furniture Height" name="height"required />
+                            <input type="number" placeholder="Enter Furniture length" name="length" required />
+                        </div>
                     </div>
-                    <!-- <button type="submit">submit</button> -->
+                    <button type="submit">submit</button>
                 </form>
                 <button class="Cancel-btn">
                     <a href="Productpage.html">Cancel</a>
