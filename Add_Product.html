@@ -1,77 +1,103 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <link href="add-product.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="add-product.css" rel="stylesheet" />
     <title>Add Project Page</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <section class="Add-product">
-        <div class="Add-Container">
-            <div class="Add-Title">Product Add</div>
-            <div class="line1"></div>
-            <div id="product-form">
-                <form id="add-product-form" action="save.php" method="POST" autocomplete="off">
-                    <div class="move-label1">
-                        <label>SKU</label>
-                    </div>
-                    <div class="move-field">
-                        <input type="text" placeholder="#sku" name="sku" required>
-                    </div>
-                    <div class="move-label2">
-                        <label>Name</label>
-                    </div>
-                    <div class="move-field">
-                        <input type="text" placeholder="#name" name="name" required>
-                    </div>
-                    <div class="move-label3">
-                        <label>Price ($)</label>
-                    </div>
-                    <div class="move-field">
-                        <input type="number" placeholder="#price" name="price" required>
-                    </div>
-                    <div class="Save-btn">
-                        <input type="submit">
-                    </div>
-                    <label>Type Switcher</label>
-                    <select id="productType" name="productType">
-                        <!-- <option value="d">Type Switcher</option> -->
-                        <div class="producType2">
-                        <option value="Disc">Disc</option>
-                        <option value="Book">Book</option>
-                        <option value="Furniture">Furniture</option>
-                        </div>
-                    </select>
-                    <div id="type-forms">
-                        <div class="fieldbox hidden" id="Disc" data-alias="productSize">
-                            <label>Size (mb)</label>
-                            <input type="number" placeholder="Enter Disc Size" name="disc" required />
-                        </div>
-                        <div class="fieldbox hidden" id="Book" data-alias="productWeight">
-                            <label>Weight (kg)</label>
-                            <input type="number" placeholder="Enter Book Weight" name="weight" required />
-                        </div>
-                        <div class="fieldbox hidden" id="Furniture" data-alias="productDimension">
-                            <label>Dimension (cm)</label>
-                            <input type="number" placeholder="Enter Furniture Width" name="width" required />
-                            <input type="number" placeholder="Enter Furniture Height" name="height"required />
-                            <input type="number" placeholder="Enter Furniture length" name="length" required />
-                        </div>
-                    </div>
-                    <button type="submit">submit</button>
-                </form>
-                <button class="Cancel-btn">
-                    <a href="Productpage.html">Cancel</a>
-                </button>
-                </a>
+      <div class="Add-Container">
+        <div class="Add-Title">Product Add</div>
+        <div class="line1"></div>
+        <div id="product-form">
+          <form id="add-product-form" autocomplete="off">
+            <div class="move-label1">
+              <label>SKU</label>
             </div>
-            <div class="line2"></div>
+            <div class="move-field">
+              <input type="text" placeholder="#sku" name="sku" required />
+            </div>
+            <div class="move-label2">
+              <label>Name</label>
+            </div>
+            <div class="move-field">
+              <input type="text" placeholder="#name" name="name" required />
+            </div>
+            <div class="move-label3">
+              <label>Price ($)</label>
+            </div>
+            <div class="move-field">
+              <input type="number" placeholder="#price" name="price" required />
+            </div>
+            <!-- <div class="Save-btn">
+                        <input type="submit">
+                    </div> -->
+            <label>Type Switcher</label>
+            <select id="productType" name="productType">
+              <!-- <option value="d">Type Switcher</option> -->
+              <div class="producType2">
+                <option value="DVD">DVD</option>
+                <option value="Book">Book</option>
+                <option value="Furniture">Furniture</option>
+              </div>
+            </select>
+            <div id="type-forms">
+              <div class="fieldbox" id="DVD" data-alias="productSize">
+                <label>Size (mb)</label>
+                <input
+                  type="number"
+                  placeholder="Enter DVD Size"
+                  name="dvd"
+                  required
+                />
+              </div>
+              <div class="fieldbox" id="Book" data-alias="productWeight">
+                <label>Weight (kg)</label>
+                <input
+                  type="number"
+                  placeholder="Enter Book Weight"
+                  name="weight"
+                  required
+                />
+              </div>
+              <div
+                class="fieldbox"
+                id="Furniture"
+                data-alias="productDimension"
+              >
+                <label>Dimension (cm)</label>
+                <input
+                  type="number"
+                  placeholder="Enter Furniture Width"
+                  name="width"
+                  required
+                />
+                <input
+                  type="number"
+                  placeholder="Enter Furniture Height"
+                  name="height"
+                  required
+                />
+                <input
+                  type="number"
+                  placeholder="Enter Furniture length"
+                  name="length"
+                  required
+                />
+              </div>
+            </div>
+            <button type="submit">submit</button>
+          </form>
+          <button class="Cancel-btn">
+            <a href="Productpage.html">Cancel</a>
+          </button>
         </div>
+        <div class="line2"></div>
+      </div>
     </section>
-</body>
-<script src="./js/database.js"></script>
-<script src="./js/addProduct.js"></script>
-
+  </body>
+  <script src="./js/database.js"></script>
+  <script src="./js/addProduct.js"></script>
 </html>
