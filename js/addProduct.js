@@ -10,14 +10,59 @@ document.onreadystatechange = () => {
 
 // determine form to show function
 const showForm = () => {
-  const formIds = ["DVD", "Book", "Furniture"];
-  let filteredForms = formIds.filter((formId) => formId !== typeSwitch.value);
-  filteredForms.map((form) =>
-    typeForm.querySelector(`#${form}`).classList.add("hidden")
-  );
-  const currentForm = typeForm
-    .querySelector(`#${typeSwitch.value}`)
-    .classList.remove("hidden");
+  const formHtml = {
+    DVD: `
+      <div class="fieldbox" id="DVD">
+        <label>Size (mb)</label>
+        <input
+          type="number"
+          id="size"
+          placeholder="Enter DVD Size"
+          name="dvd"
+          required
+        />
+      </div>
+    `,
+    Book: `
+      <div class="fieldbox" id="Book">
+        <label>Weight (kg)</label>
+        <input
+          type="number"
+          id="weight"
+          placeholder="Enter Book Weight"
+          name="weight"
+          required
+        />
+      </div>
+    `,
+    Furniture: `
+      <div class="fieldbox" id="Furniture">
+        <label>Dimension (cm)</label>
+        <input
+          type="number"
+          id="height"
+          placeholder="Enter Furniture Height"
+          name="height"
+          required
+        />
+        <input
+          type="number"
+          id="width"
+          placeholder="Enter Furniture width"
+          name="width"
+          required
+        />
+        <input
+          type="number"
+          id="length"
+          placeholder="Enter Furniture length"
+          name="length"
+          required
+        />
+      </div>
+    `,
+  };
+  typeForm.innerHTML = formHtml[typeSwitch.value];
 };
 
 typeSwitch.addEventListener("change", () => {
@@ -66,7 +111,7 @@ typeSwitch.addEventListener("change", () => {
 
 // const formatPropName = (typeValue) => {
 //   switch (typeValue) {
-//     case "Disc":
+//     case "DVD":
 //       return "productSize";
 //     case "Book":
 //       return "productWeight";
@@ -80,8 +125,8 @@ typeSwitch.addEventListener("change", () => {
 // // function to return the value of select input prepended/appended with appropriate unit(kg/mb)
 // const getFieldValue = (typeField) => {
 //   switch (typeField) {
-//     case "Disc":
-//       return `${productForm.disc.value.trim()}MB`;
+//     case "DVD":
+//       return `${productForm.dvd.value.trim()}MB`;
 //     case "Book":
 //       return `${productForm.weight.value.trim()}kg`;
 //     case "Furniture":
@@ -110,24 +155,56 @@ const redirectUser = (endpoint) => {
   location.assign(redirectUrl);
 };
 
-// productForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const selectFieldValue = typeSwitch.value;
-//   // const formData = {
-//   //   productId: productForm.sku.value.trim(),
-//   //   productName: productForm.name.value.trim(),
-//   //   productPrice: `$${productForm.price.value.trim()}`,
-//   //   // [formatPropName(`${typeSwitch.value}`)]: getFieldValue(typeSwitch.value),
-//   // };
-//   // console.log(formData, "id");
-//   console.log("submitted");
+let n = (container) => {
+  let newTest = {
+    DVD: {
+      key: "productSize",
+      value: `${container.dvd.value.trim()}MB`,
+    },
+    Book: {
+      key: "productWeight",
+      value: `${container.weight.value.trim()}kg`,
+    },
+    Furniture: {
+      key: "productDimension",
+      value: `${container.width.value}x${container.height.value}x${container.length.value}`,
+    },
+  };
+};
 
-//   // addProduct(formData);
-//   // productForm.reset();
-//   // setTimeout(() => redirectUser("Productpage.html"), 100);
-// });
+// const test = {
+//   DVD: {
+//     key: "productSize",
+//     value: `${productForm.dvd.value.trim()}MB`,
+//   },
+//   Book: {
+//     key: "productWeight",
+//     value: `${productForm.weight.value.trim()}kg`,
+//   },
+//   Furniture: {
+//     key: "productDimension",
+//     value: `${productForm.width.value}x${productForm.height.value}x${productForm.length.value}`,
+//   },
+// };
+
 productForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("submitted");
+
+  // const selectFieldValue = typeSwitch.value;
+  const formData = {
+    productId: productForm.sku.value.trim(),
+    productName: productForm.name.value.trim(),
+    productPrice: `$${productForm.price.value.trim()}`,
+    [test[typeSwitch.value].key]: test[typeSwitch.value].value,
+    // [formatPropName(`${typeSwitch.value}`)]: getFieldValue(typeSwitch.value),
+  };
+  console.log(formData, "id");
+  // console.log("submitted", typeSwitch.value);
+  // console.log(test[typeSwitch.value].key);
+  // console.log(productForm.dvd.value);
+
+  // addProduct(formData);
+  // productForm.reset();
+  // setTimeout(() => redirectUser("Productpage.html"), 100);
+  console.log(document.querySelector("#size"));
 });
-console.log(productForm);
