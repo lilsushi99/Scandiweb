@@ -91,13 +91,13 @@ const getValues = () => {
       ? document.querySelector("#weight").value.trim()
       : 0,
     height: document.querySelector("#height")
-      ? document.querySelector("#height")
+      ? document.querySelector("#height").value
       : 0,
     width: document.querySelector("#width")
-      ? document.querySelector("#width")
+      ? document.querySelector("#width").value
       : 0,
     length: document.querySelector("#length")
-      ? document.querySelector("#length")
+      ? document.querySelector("#length").value
       : 0,
   };
 };
@@ -116,8 +116,8 @@ productForm.addEventListener("submit", (e) => {
     },
     Furniture: {
       type: "productDimension",
-      value: `${getValues()["height"].value}x${getValues()["width"].value}x${
-        getValues()["length"].value
+      value: `${getValues()["height"]}x${getValues()["width"]}x${
+        getValues()["length"]
       }`,
     },
   };
