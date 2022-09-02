@@ -131,5 +131,5 @@ productForm.addEventListener("submit", (e) => {
 
   addProduct(formData);
   productForm.reset();
-  setTimeout(() => redirectUser("Productpage.html"), 100);
+  setTimeout(() => redirectUser("index.html"), 100);
 });
