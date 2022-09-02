@@ -1,5 +1,4 @@
 const deleteBtn = document.querySelector("#delete-product-btn");
-const selectAllContainer = document.querySelector("#select-all");
 
 const productGrid = document.querySelector(".Product-Grid");
 
