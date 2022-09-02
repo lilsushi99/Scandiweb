@@ -6,16 +6,6 @@ body {
   background-color: hsl(30, 30%, 95%);
 }
 
-#select-all {
-  margin-bottom: 3rem;
-  display: inline-block;
-}
-
-#select-all label {
-  cursor: pointer;
-  font-size: 1.5rem;
-}
-
 .empty {
   font-size: 2rem;
   margin: 3rem auto;
@@ -119,14 +109,14 @@ footer {
 }
 @media (max-width: 450px) {
   .line1 {
-       width: 350px;
+    width: 350px;
   }
   .Container .Title {
-       font-size: 20px;
+    font-size: 20px;
   }
   .Center-div {
-       position: relative;
-       bottom: 15rem;
+    position: relative;
+    bottom: 15rem;
   }
 }
 
