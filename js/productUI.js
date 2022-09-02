@@ -30,8 +30,6 @@ deleteBtn.addEventListener("click", () => {
   retrieved.map((product) => generateCards(product, productGrid));
 
   if (!retrieved.length) {
-    selectAll.checked = false;
-    selectAllContainer.style.display = "none";
     productGrid.innerHTML = `<p class="empty">There are no items left!</p>`;
   }
 });
